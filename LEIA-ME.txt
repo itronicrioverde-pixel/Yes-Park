@@ -1,0 +1,10 @@
+YES! PARK — ÍCONE NA TELA INICIAL
+
+1. Envie TODOS estes arquivos juntos para a raiz do seu repositório GitHub Pages.
+2. Não é suficiente publicar só o index.html: o Apple Touch Icon e o manifesto precisam estar disponíveis no mesmo endereço.
+3. No iPhone: Safari > Compartilhar > Adicionar à Tela de Início.
+4. No Android: Chrome > menu > Instalar app ou Adicionar à tela inicial.
+5. Se o ícone antigo persistir, remova o atalho anterior e adicione-o novamente.
+
+A logo oficial foi usada como fornecida, sem modificação dos traços, proporção ou cores.
+A atualização não muda os registros no Supabase nem outras partes do site.
