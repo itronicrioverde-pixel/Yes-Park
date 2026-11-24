@@ -1,0 +1,1281 @@
+
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1b3128;background:#f6f8f6;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.55}.app{width:min(1090px,100%);margin:auto;background:#fff;min-height:100vh;border-left:1px solid #e5ebe6;border-right:1px solid #e5ebe6}.top{padding:16px 26px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:white}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.6px;font-size:18px}.logo{width:38px;height:38px;border-radius:12px;background:#155a43;color:#b8efca;display:grid;place-items:center;font-size:21px}.brand small{font-size:9px;display:block;letter-spacing:1.5px;color:#86948a;font-weight:700}.brand em{font-style:normal;color:#188057}.top-side{font-size:11px;display:flex;gap:8px;align-items:center}.access{background:#eaf4ec;color:#376f51;border-radius:24px;padding:7px 11px;font-weight:700}.tabs{display:flex;align-items:center;gap:6px;padding:0 24px 11px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #edf0ed;background:white}.tab{border:0;background:transparent;white-space:nowrap;padding:10px 14px;border-radius:11px;color:#64756b;font-size:12px;font-weight:700}.tab.active{background:#e8f5ec;color:#176044}.view{display:none}.view.active{display:block}.hero{background:linear-gradient(112deg,#092e26 0%,#115743 62%,#277757 100%);border-radius:20px;padding:28px;min-height:240px;position:relative;overflow:hidden;color:white;display:flex;align-items:center;justify-content:space-between;gap:12px}.hero:after{content:"";position:absolute;width:230px;height:230px;border:1px solid #ffffff21;border-radius:50%;right:-37px;top:-78px;box-shadow:0 0 0 52px #ffffff09,0 0 0 104px #ffffff07;pointer-events:none}.hero-content{position:relative;z-index:1;max-width:550px}.eyebrow{letter-spacing:1.3px;font-size:10px;font-weight:850;color:#b4ecc9;text-transform:uppercase}.hero h1{font-size:clamp(27px,4vw,43px);line-height:1.09;letter-spacing:-1.4px;margin:12px 0}.hero p{font-size:13px;color:#d3e8db;max-width:480px;line-height:1.6;margin:0 0 18px}.hero-art{position:relative;z-index:1;flex:0 0 auto;border:1px solid #ffffff35;border-radius:25px;background:#ffffff13;backdrop-filter:blur(4px);padding:22px;font-size:51px;transform:rotate(-8deg);margin:0 35px}.btn{border:0;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:12px;font-weight:750;padding:11px 15px;text-decoration:none;white-space:nowrap}.btn.primary{background:#15664b;color:white}.btn.on-dark{background:#e3f8e9;color:#174e35}.btn.outline{border:1px solid #dce8df;background:white;color:#28523a}.btn.ghost{background:#eef6f0;color:#255f42}.btn:hover,.banner-dots button:hover{filter:brightness(.96)}.hero-foot{display:flex;align-items:center;gap:12px}.banner-dots{display:flex;gap:6px}.banner-dots button{width:19px;height:6px;border:0;border-radius:100px;background:#ffffff60;padding:0}.banner-dots button.active{width:31px;background:#c2f6d2}.notice{padding:10px 26px;background:#f0f5f0;font-size:11px;color:#607569;border-bottom:1px solid #e4ece5}.main{padding:24px 26px}.section-title{font-size:20px;letter-spacing:-.55px;font-weight:800;margin:0 0 4px}.hint{font-size:12px;color:#78877f;line-height:1.5}.section-header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}.section{margin:26px 0 30px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{background:#fff;border:1px solid #e4ebe5;border-radius:16px;min-width:0;padding:16px}.promo{border:1px solid #e1e9e2;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:11px;background:linear-gradient(135deg,#ffffff,#f8fbf8);min-height:180px}.promo-title{font-size:17px;font-weight:800;letter-spacing:-.4px;line-height:1.25}.promo-kicker{font-size:9px;letter-spacing:1.1px;font-weight:850;color:#278a64;text-transform:uppercase}.promo-desc,.desc{color:#708078;font-size:12px;line-height:1.55}.promo-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto}.meta{font-size:10px;color:#769083}.name{font-size:14px;font-weight:800;letter-spacing:-.3px}.avatar{flex-shrink:0;width:44px;height:44px;border-radius:13px;background:#e4f4e9;color:#176044;display:grid;place-items:center;font-size:21px}.card-head{display:flex;gap:10px;align-items:center}.rating{color:#dc9c20;font-size:12px;font-weight:750}.rating span{color:#77857b;font-size:11px;font-weight:450}.card-actions{display:flex;gap:7px;margin-top:12px}.card-actions .btn{flex:1;padding:10px 6px;font-size:11px}.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:17px 0}.chip{border-radius:999px;border:1px solid #e1e9e2;background:#fff;padding:9px 13px;color:#677b6d;font-size:12px;font-weight:700;white-space:nowrap}.chip.active{background:#185f46;border-color:#185f46;color:white}.searchbox{display:flex;align-items:center;gap:9px;border:1px solid #dee8df;border-radius:12px;padding:0 12px;margin-top:16px;background:#fff;color:#528369}.searchbox input{border:0;background:none;outline:none;flex:1;width:100%;padding:13px 0;font-size:13px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:12px 0}.toolbar select{border:1px solid #e1e9e2;padding:9px;border-radius:9px;font-size:11px;color:#50675b;background:#fff}.page-intro{display:flex;justify-content:space-between;align-items:center;gap:12px}.page-intro h2{font-weight:850;font-size:25px;letter-spacing:-.8px;margin:0 0 5px}.page-intro p{font-size:12px;color:#75867a;margin:0}.pill{display:inline-block;background:#e8f5ec;color:#23704e;border-radius:8px;padding:5px 8px;font-size:10px;font-weight:800}.pill.pending{background:#fff3dd;color:#96631c}.empty{padding:36px 10px;text-align:center;color:#7b8d80;grid-column:1/-1}.inset{background:#f3f8f4;border:1px solid #e4eee6;border-radius:16px;padding:19px}.mine{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #e6eee7}.mine:last-child{border:0}.my-actions{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.helper{font-size:11px;color:#74867a;line-height:1.5}.bottom{background:#f3f8f4;border-top:1px solid #e1ebe3;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:15px}.bottom strong{font-size:16px}.bottom p{color:#738679;font-size:12px;margin:4px 0 0}.footer{text-align:center;font-size:10px;color:#92a397;padding:15px}.overlay{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;background:#081f18b8;padding:16px}.overlay.open{display:flex}.modal{width:min(520px,100%);max-height:88vh;overflow:auto;border-radius:20px;background:white;padding:23px;box-shadow:0 20px 60px #0004;color:#1c3829}.modal-head{display:flex;justify-content:space-between;gap:10px;align-items:start}.modal h3{font-size:21px;letter-spacing:-.55px;margin:0 0 3px}.x{background:#f1f6f2;border:1px solid #e1eae2;border-radius:9px;height:30px;width:30px}.field{font-size:12px;font-weight:700;display:flex;flex-direction:column;gap:6px;margin:13px 0}.field input,.field select,.field textarea{background:white;border:1px solid #dbe6de;border-radius:9px;padding:11px;font-size:13px;outline:none;width:100%}.field input:focus,.field textarea:focus{border-color:#2b956a}.stars-picker{display:flex;gap:5px;margin:12px 0}.star{font-size:30px;background:none;border:0;color:#bcc7be;padding:0 3px}.star.selected{color:#e7a72a}.review{border-bottom:1px solid #e7eee8;padding:12px 0}.review p{margin:6px 0;font-size:12px;color:#6e8072}.toast{display:none;position:fixed;z-index:1002;bottom:20px;left:50%;transform:translateX(-50%);background:#103e2e;color:white;border-radius:11px;padding:12px 16px;box-shadow:0 9px 30px #0002;font-size:12px;max-width:90vw;text-align:center}@media(max-width:770px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-art{display:none}.top{padding:14px}.tabs{padding:0 9px 8px}.main{padding:20px 14px}.notice{padding:10px 14px}.bottom{padding:20px 14px}.hero{padding:27px 20px}.access{font-size:0}.access:before{content:'●';font-size:11px}}@media(max-width:480px){.grid{grid-template-columns:1fr}.hero{border-radius:16px}.hero h1{font-size:29px}.hero p{font-size:12px}.top-side .btn{font-size:11px;padding:10px}.brand{font-size:16px}.page-intro{align-items:flex-start}.page-intro .btn{font-size:10px;padding:10px}.bottom{flex-direction:column;align-items:start}.bottom .btn{width:100%}}
+
+/* Carrossel de propagandas: arraste com mouse ou deslize no celular */
+.condo-logo{width:59px;height:59px;object-fit:contain;flex-shrink:0}
+.hero.hero-banner{padding:20px 22px;min-height:240px;background:linear-gradient(135deg,#f3f8f1 0%,#eef5e7 45%,#f8f4e6 100%);display:flex;align-items:center;justify-content:center;position:relative;border:1px solid #e2eae4}
+.hero.hero-banner:after{display:none}
+.hero-banner-img{display:block;width:100%;max-width:none;height:auto;max-height:220px;object-fit:contain;object-position:center;border-radius:18px;user-select:none;-webkit-user-drag:none;cursor:pointer;margin:0 auto;box-shadow:0 10px 28px rgba(15,91,66,.10)}
+.hero-overlay-nav{position:absolute;left:20px;right:20px;bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;pointer-events:none;z-index:2}
+.hero-overlay-nav .banner-dots,.hero-overlay-nav .banner-nav{pointer-events:auto}
+.hero-overlay-nav .banner-dots button{background:#ffffff9e}
+.hero-overlay-nav .banner-dots button.active{background:#ffffff}
+.hero-overlay-nav .banner-arrow{background:#0f5b42c7;border-color:#ffffff80;backdrop-filter:blur(4px)}
+.hero-overlay-nav .banner-arrow:hover{background:#0a4734}
+.hero{touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.hero.grabbing{cursor:grabbing}
+.hero button{touch-action:manipulation}
+.hero-foot{flex-wrap:wrap}
+.banner-nav{display:flex;align-items:center;gap:7px;margin-left:auto}
+.banner-arrow{width:32px;height:32px;border-radius:50%;border:1px solid #ffffff55;background:#ffffff18;color:#fff;font-size:20px;display:grid;place-items:center;cursor:pointer;line-height:1}
+.banner-arrow:hover{background:#ffffff32}
+.carousel-tools{display:flex;align-items:center;gap:7px}
+.carousel-tools button:not(.btn){width:32px;height:32px;border:1px solid #e2ebe4;border-radius:9px;background:#f2f7f2;color:#215940;font-size:19px;line-height:1}
+#home-promos,#promos-list{display:flex;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;touch-action:pan-y;cursor:grab;gap:12px;padding:2px 2px 10px;scroll-behavior:smooth}
+#home-promos::-webkit-scrollbar,#promos-list::-webkit-scrollbar{display:none}
+#home-promos.dragging,#promos-list.dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
+#home-promos>.promo,#promos-list>.promo{flex:0 0 clamp(245px,42%,380px);scroll-snap-align:start}
+#home-promos .btn,#promos-list .btn{user-select:none}
+@media(max-width:580px){.condo-logo{width:46px;height:46px}.hero{min-height:275px}.banner-nav{margin-left:0}#home-promos>.promo,#promos-list>.promo{flex-basis:min(86%,350px)}.carousel-tools button:not(.btn){width:30px;height:30px}.section-header{align-items:flex-start}.section-header:has(.carousel-tools){flex-direction:column;align-items:stretch}.section-header .carousel-tools{justify-content:flex-end}.hero-overlay-nav{left:12px;right:12px;bottom:12px}.hero.hero-banner{min-height:auto}.hero-banner-img{min-height:0;object-fit:contain;width:100%;height:auto}}
+
+
+/* YES! PARK — visual institucional em degradê. Botões sem contornos escuros. */
+:root {
+ --yp-deep: #075334;
+ --yp-evergreen: #11633f;
+ --yp-leaf: #2f9855;
+ --yp-mint: #d7f6d3;
+ --yp-lime: #dfff90;
+ --yp-yellow: #ffdc43;
+ --yp-orange: #fa8b34;
+ --yp-text: #173d2b;
+ --yp-shadow: 0 8px 22px rgba(30,100,57,.075);
+ color: var(--yp-text);
+ background: #e7f7e2;
+}
+html { min-height:100%; background:#e7f7e2; }
+body {
+ min-height:100vh;
+ background:
+  radial-gradient(ellipse at 8% 8%, rgba(216,255,139,.7), transparent 39%),
+  radial-gradient(ellipse at 99% 15%, rgba(255,219,107,.45), transparent 38%),
+  radial-gradient(ellipse at 15% 81%, rgba(135,213,150,.42), transparent 48%),
+  linear-gradient(135deg, #edfbdc 0%, #f6fcf2 37%, #e6f7e6 67%, #fff5e1 100%);
+ background-attachment: fixed;
+}
+.app {
+ color:var(--yp-text);
+ background:
+  radial-gradient(circle at 100% 0%,rgba(251,225,121,.20),transparent 33%),
+  radial-gradient(circle at 0% 33%,rgba(179,239,155,.20),transparent 50%),
+  linear-gradient(145deg,rgba(255,255,255,.96),rgba(245,253,237,.96) 46%,rgba(252,250,238,.97) 100%);
+ border:0;
+ box-shadow:0 18px 75px rgba(19,84,48,.11);
+}
+.top {
+ background:linear-gradient(116deg,#e8ffcf 0%,#f5fce9 52%,#fff4d7 100%);
+ border-bottom:0;
+ padding-top:19px;
+ padding-bottom:18px;
+}
+.condo-logo {filter:drop-shadow(0 3px 5px rgba(25,95,38,.13));width:64px;height:64px;}
+.brand {color:#123d28;}
+.brand em {color:#178247;}
+.brand small {color:#517961;}
+.access{background:rgba(255,255,255,.73);color:#276946;box-shadow:0 2px 8px rgba(33,113,53,.055)}
+.tabs {
+ background:linear-gradient(100deg,#ecfbe0,#f9fbef 63%,#fff5e6);
+ border-bottom:0;
+ padding-top:2px;
+ padding-bottom:13px;
+}
+.notice{
+ background:linear-gradient(95deg,#f4fce9,#fff9e5);
+ color:#66806a;
+ border-top:1px solid rgba(89,150,77,.085);
+ border-bottom:1px solid rgba(89,150,77,.085);
+}
+.main {background:transparent}
+.section-title, .page-intro h2{color:#12452d}
+.hint,.desc,.promo-desc,.helper,.meta,.bottom p{color:#6d8373}
+.section {position:relative}
+.card,.promo {
+ background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(250,254,246,.94));
+ border:1px solid rgba(132,190,127,.20);
+ box-shadow:var(--yp-shadow);
+ border-radius:19px;
+ transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover,.promo:hover{transform:translateY(-2px);box-shadow:0 13px 29px rgba(31,111,52,.12)}
+.promo {background:linear-gradient(140deg,#fff,#f4fbea 82%)}
+.promo-kicker {color:#2f9258}
+.avatar {background:linear-gradient(145deg,#e1f8d2,#f2fbea);color:#216a40;border-radius:15px}
+.rating {color:#eda525}
+/* CTA, tabs, chips, setas e controles sem bordas pretas */
+button,.btn,.tab,.chip,.banner-arrow,.banner-dots button,
+.carousel-tools button,.x,.star {outline-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+ outline:3px solid rgba(73,172,88,.43)!important;
+ outline-offset:3px;
+}
+.btn,
+.btn.primary,.btn.ghost,.btn.outline,.btn.on-dark,
+.tab,.chip,.carousel-tools button:not(.btn),.banner-arrow,.x {
+ border:0!important;
+ border-radius:13px;
+ box-shadow:0 4px 10px rgba(23,100,56,.08);
+ transition:background .15s,transform .16s,box-shadow .16s;
+}
+.btn:hover,.tab:hover,.chip:hover,.carousel-tools button:hover,.banner-arrow:hover{transform:translateY(-1px);filter:brightness(1.02)}
+.btn:active,.tab:active,.chip:active{transform:translateY(1px)}
+.btn.primary{
+ background:linear-gradient(130deg,#208a50,#0d6642 95%);
+ color:#fff;
+ box-shadow:0 5px 13px rgba(20,108,59,.22);
+}
+.btn.ghost{
+ background:linear-gradient(120deg,#e2f8d9,#d3efd4);
+ color:#1b6a42;
+}
+.btn.outline{
+ background:linear-gradient(125deg,#eef9de,#dff3d9);
+ color:#206a44;
+}
+.btn.on-dark{
+ background:linear-gradient(120deg,#f4ffc7,#d3f9ca);
+ color:#165636;
+}
+.tab {background:transparent;color:#55765f;box-shadow:none;border-radius:12px}
+.tab.active{background:linear-gradient(120deg,#d6f4c8,#eefbd7);color:#155b3c;box-shadow:0 4px 11px rgba(26,102,53,.08)}
+.tab:hover:not(.active){background:#e9f8df}
+.chip{background:#f3f9ec;color:#55735b;box-shadow:0 2px 8px rgba(35,99,54,.045)}
+.chip.active{background:linear-gradient(115deg,#238b50,#116b42);color:white;box-shadow:0 5px 13px rgba(23,112,59,.16)}
+.carousel-tools button:not(.btn){background:linear-gradient(130deg,#ddf3d4,#effadf);color:#237249;border-radius:12px;box-shadow:0 4px 11px rgba(22,107,54,.08)}
+.banner-arrow{background:linear-gradient(135deg,#248850ea,#0d6544ee);color:#fff;box-shadow:0 3px 11px rgba(19,90,45,.21);border-radius:50%!important}
+.banner-arrow:hover{background:#0b593d}
+.hero.hero-banner{border:0!important;box-shadow:0 12px 26px rgba(40,107,54,.10);background:#e4f8dc;border-radius:19px}
+.hero-banner-img{border-radius:19px}
+.hero:not(.hero-banner){background:linear-gradient(115deg,#0c5638,#2b9551 72%,#92b840);box-shadow:0 12px 26px rgba(24,112,58,.12)}
+.hero-overlay-nav .banner-arrow{background:linear-gradient(135deg,#208350ef,#0a5940ef);border:0!important}
+.hero-overlay-nav .banner-dots button{background:#ffffffaa;box-shadow:0 1px 3px rgba(4,76,45,.1);border:0}
+.hero-overlay-nav .banner-dots button.active{background:#fff}
+.searchbox{background:rgba(255,255,255,.93);border:1px solid #d5eaca;box-shadow:0 4px 13px rgba(25,100,54,.05)}
+.searchbox input{background:transparent;color:#18452d}
+.toolbar select,.field input,.field textarea,.field select{border:1px solid #d8e9ce;background:#fff;color:#15412b;border-radius:12px}
+.pill {background:#e2f6dc;color:#276947;border-radius:10px}
+.pill.pending{background:#fff3d7;color:#9f6b24}
+.inset{background:linear-gradient(135deg,#eaf8e5,#f6fbe9);border:1px solid rgba(119,176,115,.15);border-radius:18px}
+.bottom{background:linear-gradient(115deg,#def7cd,#f4fbe4 65%,#fff0d3);border:0}
+.bottom strong {color:#185335}
+.footer{background:rgba(245,252,238,.75);color:#6e9175}
+.modal{border:0;border-radius:22px;box-shadow:0 24px 64px rgba(13,70,35,.25)}
+.x{background:#eaf7e3;color:#306a46}
+.toast{background:linear-gradient(130deg,#145e3b,#249259);border:0}
+@media(max-width:770px){.top{padding:13px 15px}.condo-logo{width:54px;height:54px}.app{box-shadow:none}}
+@media(max-width:480px){.condo-logo{width:49px;height:49px}.hero.hero-banner{min-height:unset}.hero-banner-img{border-radius:15px}.btn{border-radius:12px}.card,.promo{border-radius:17px}.top{padding:11px 13px}}
+@media(prefers-reduced-motion:reduce){.btn,.tab,.chip,.card,.promo{transition:none}}
+
+
+/* Controles do carrossel no canto inferior esquerdo: não cobrem o CTA desenhado no banner. */
+.hero-overlay-nav {justify-content:flex-start;gap:13px}
+.hero-overlay-nav .banner-nav {margin-left:0;gap:5px}
+@media(max-width:580px) {.hero-overlay-nav{left:13px;right:12px;bottom:9px;gap:10px}.hero-overlay-nav .banner-arrow{width:28px;height:28px;font-size:18px}}
+
+/* YES! PARK — administração e conteúdo (preserva tema original) */
+.top-side .access {font-size:11px}
+.admin-tab[hidden], [hidden]{display:none!important}
+.admin-only-link{border:0;background:transparent;color:#5b8067;font-weight:700;font-size:12px;padding:7px 8px}
+.admin-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.admin-actions{display:flex;gap:9px;flex-wrap:wrap;margin:17px 0 21px}
+.admin-row{display:flex;align-items:center;gap:12px;border-bottom:1px solid #e3eae1;padding:13px 0}
+.admin-row:last-child{border:0}
+.admin-row-body{min-width:0;flex:1}
+.admin-row strong{display:block;color:#1b5034;font-size:13px;overflow-wrap:anywhere}
+.admin-row .hint{margin-top:3px}
+.admin-buttons{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.admin-buttons .btn{padding:8px 10px;font-size:11px}
+.admin-section{margin:20px 0;padding:19px;border-radius:17px;border:1px solid #e0eedd;background:#fffdfa}
+.admin-section h3{font-size:17px;margin:0 0 9px;letter-spacing:-.3px}
+.admin-message{border:1px solid #e2e8dd;background:#f5faee;border-radius:14px;padding:12px 14px;line-height:1.5;color:#4e6c56;font-size:12px}
+.admin-message.warning{background:#fff8e9;border-color:#f1dfb8;color:#815e27}
+.admin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.admin-stat{border:1px solid #dfebd8;border-radius:13px;padding:13px;background:linear-gradient(145deg,#effbe8,#fff)}
+.admin-stat strong{font-size:23px;color:#186540;display:block}
+.admin-stat small{color:#76907b;font-size:11px}
+.detail-image{display:block;width:100%;max-height:210px;object-fit:cover;border-radius:14px;margin:9px 0 13px}
+.cover-small{width:46px;height:46px;object-fit:cover;border-radius:11px;background:#e8f4e6;flex-shrink:0}
+.ad-cover{width:100%;height:115px;object-fit:cover;border-radius:12px;display:block}
+.form-split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.form-buttons .btn{flex:1}
+.field input[type='checkbox']{width:auto}
+.field input[type='file']{padding:9px;font-size:12px}
+.form-check{display:flex;gap:9px;align-items:flex-start;font-size:12px;color:#58755f;line-height:1.5;margin:13px 0}
+.form-check input{margin-top:4px}
+.banner-note{font-size:11px;color:#628168}
+.rating-card{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:9px}
+.badge-local{font-size:10px;background:#fff1ca;color:#7d5c11;border-radius:9px;padding:4px 8px;font-weight:800}
+.admin-entry{font-size:12px;color:#4e7759;border:0;background:transparent;text-decoration:underline;cursor:pointer}
+body.admin-is-open .app{min-height:100vh}
+button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:620px){.admin-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.admin-section{padding:13px}.admin-row{align-items:flex-start;flex-wrap:wrap}.admin-buttons{width:100%;justify-content:flex-start}.form-split{grid-template-columns:1fr}.top-side .access{display:none}.top{gap:8px}.admin-stat{padding:9px}.admin-stat strong{font-size:20px}}
+
+
+/* Yes! Park: slides institucionais com enquadramento panorâmico
+   IDÊNTICO ao slide de texto da iTronic: ocupam todo o cartão,
+   sem cortar nem distorcer as informações da arte original. */
+.hero.hero-yespark-wide {
+  display:flex !important;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
+  box-sizing:border-box;
+  width:100%;
+  height:240px;
+  min-height:240px;
+  padding:24px 42px 28px 35px;
+  gap:28px;
+  color:#075437;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 360px 220px at -6% 5%,rgba(97,195,84,.45),transparent 78%),
+    radial-gradient(ellipse 350px 250px at 104% 105%,rgba(253,164,56,.37),transparent 70%),
+    linear-gradient(105deg,#e7ffc2 0%,#f6ffe5 30%,#fffdf0 65%,#fff3c6 100%) !important;
+  border-radius:20px;
+  box-shadow:0 12px 26px rgba(40,107,54,.1);
+}
+.hero.hero-yespark-wide:before {
+  content:"";
+  position:absolute;
+  width:420px;
+  height:100px;
+  background:linear-gradient(100deg,#b8ea35,#f8ec33,#f9a438);
+  border-radius:50%;
+  bottom:-88px;
+  right:-55px;
+  transform:rotate(-8deg);
+  opacity:.75;
+  pointer-events:none;
+}
+.hero.hero-yespark-wide:after {
+  content:"";
+  position:absolute;
+  top:-92px;
+  right:-150px;
+  width:360px;
+  height:190px;
+  background:linear-gradient(140deg,#b7f441,#3da551);
+  border-radius:50%;
+  transform:rotate(10deg);
+  opacity:.58;
+  pointer-events:none;
+  box-shadow:none;
+  border:none;
+}
+.yp-wide-logo {
+  display:block;
+  position:relative;
+  z-index:1;
+  width:208px;
+  height:208px;
+  flex:0 0 208px;
+  object-fit:contain;
+  filter:drop-shadow(0 10px 9px rgba(29,105,42,.14));
+  pointer-events:none;
+}
+.yp-wide-copy {
+  position:relative;
+  z-index:1;
+  flex:1 1 auto;
+  min-width:0;
+  max-width:715px;
+  padding-bottom:1px;
+}
+.yp-wide-eyebrow {
+  display:block;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:1.2px;
+  line-height:1.2;
+  color:#238453;
+  margin-bottom:7px;
+}
+.hero.hero-yespark-wide h1 {
+  color:#095939;
+  font-size:clamp(24px,3.15vw,38px);
+  line-height:1.05;
+  letter-spacing:-.95px;
+  margin:0 0 10px;
+}
+.hero.hero-yespark-wide p {
+  color:#315f48;
+  font-size:13px;
+  line-height:1.42;
+  max-width:635px;
+  margin:0 0 13px;
+}
+.hero.hero-yespark-wide .yp-wide-cta {
+  background:linear-gradient(110deg,#248b4f,#126a44);
+  color:#fff;
+  box-shadow:0 5px 15px rgba(18,94,49,.20);
+  padding:9px 15px;
+  border-radius:11px;
+}
+.hero.hero-yespark-wide.yp-wide-ad .yp-wide-cta {
+  background:linear-gradient(110deg,#ff9b1b,#fa7120);
+  box-shadow:0 5px 15px rgba(190,92,13,.18);
+}
+.hero.hero-yespark-wide.yp-wide-ad h1 strong {color:#ed6d21}
+.hero.hero-yespark-wide .hero-overlay-nav {
+  bottom:10px;
+  left:20px;
+}
+.hero.hero-yespark-wide .banner-dots button {background:rgba(27,107,63,.27)}
+.hero.hero-yespark-wide .banner-dots button.active {background:#147c4a}
+@media (max-width:770px) {
+  .hero.hero-yespark-wide {gap:15px; padding:20px 24px 26px; height:240px;}
+  .yp-wide-logo {width:160px;height:160px;flex-basis:160px;}
+  .hero.hero-yespark-wide h1 {font-size:clamp(23px,4vw,33px);}
+}
+@media (min-width:481px) and (max-width:580px) {
+  .hero.hero-yespark-wide {height:275px;min-height:275px;}
+}
+@media (max-width:480px) {
+  .hero.hero-yespark-wide {height:275px;min-height:275px;padding:17px 13px 25px;gap:9px;border-radius:16px;}
+  .yp-wide-logo {width:98px;height:118px;flex-basis:98px;}
+  .yp-wide-eyebrow {font-size:8px;letter-spacing:.6px;margin-bottom:6px;}
+  .hero.hero-yespark-wide h1 {font-size:clamp(17px,5.2vw,23px);letter-spacing:-.35px;line-height:1.06;margin-bottom:8px;}
+  .hero.hero-yespark-wide p {font-size:10px;line-height:1.32;margin-bottom:11px;}
+  .hero.hero-yespark-wide .yp-wide-cta {font-size:10px;padding:8px 9px;}
+  .hero.hero-yespark-wide .hero-overlay-nav {bottom:8px;left:13px;}
+}
+
+/* Navegação do carrossel: uma única seta, no centro vertical à direita. */
+#home-hero .hero-overlay-nav {
+  left:20px;
+  right:auto;
+  bottom:16px;
+  width:auto;
+  z-index:4;
+}
+#home-hero.hero-yespark-wide .hero-overlay-nav {
+  left:20px;
+  bottom:13px;
+}
+#home-hero .hero-next-arrow {
+  position:absolute;
+  top:50%;
+  right:18px;
+  transform:translateY(-50%);
+  z-index:5;
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  padding:0 0 3px 1px;
+  border:1px solid rgba(255,255,255,.45) !important;
+  border-radius:50%;
+  background:rgba(13,95,64,.86);
+  color:#fff;
+  font-size:30px;
+  line-height:1;
+  font-weight:400;
+  box-shadow:0 5px 14px rgba(8,61,37,.21);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  cursor:pointer;
+  touch-action:manipulation;
+  transition:background .15s ease, box-shadow .15s ease;
+}
+#home-hero .hero-next-arrow:hover {background:#0a6342;box-shadow:0 7px 17px rgba(8,61,37,.3)}
+#home-hero .hero-next-arrow:focus-visible {outline:3px solid #f3ab37 !important;outline-offset:3px}
+@media(max-width:580px) {
+  #home-hero .hero-next-arrow {right:10px;width:42px;height:42px;font-size:28px}
+  #home-hero .hero-overlay-nav,
+  #home-hero.hero-yespark-wide .hero-overlay-nav {left:13px;bottom:9px}
+}
+@media(prefers-reduced-motion:reduce){#home-hero .hero-next-arrow {transition:none}}
+
+/* Alinhamento uniforme dos cards de empresas e prestadores */
+#home-businesses > .card,
+#businesses-list > .card,
+#home-services > .card,
+#services-list > .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#home-businesses > .card .rating,
+#businesses-list > .card .rating,
+#home-services > .card .rating,
+#services-list > .card .rating {
+  margin-top: auto;
+}
+#home-businesses > .card .card-actions,
+#businesses-list > .card .card-actions,
+#home-services > .card .card-actions,
+#services-list > .card .card-actions {
+  margin-top: 12px;
+}
+/* Remover o contorno verde quadrado do campo de pesquisa.
+   Mantemos uma indicação de foco discreta e arredondada na barra. */
+.searchbox input:focus,
+.searchbox input:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+.searchbox:focus-within {
+  border-color: #a3d0a8;
+  box-shadow: 0 0 0 2px rgba(67, 145, 83, .12);
+}
+
+/* Botões padronizados no verde escolhido */
+.btn,
+.btn.primary,
+.btn.outline,
+.btn.ghost,
+.btn.on-dark,
+.carousel-tools button:not(.tab):not(.chip),
+.admin-buttons .btn,
+.form-buttons .btn,
+.my-actions .btn,
+.bottom .btn {
+  background:#0d5f40 !important;
+  color:#ffffff !important;
+  border:1px solid #0d5f40 !important;
+  box-shadow:0 8px 18px rgba(13,95,64,.16);
+}
+.btn:hover,
+.carousel-tools button:not(.tab):not(.chip):hover,
+.admin-buttons .btn:hover,
+.form-buttons .btn:hover,
+.my-actions .btn:hover,
+.bottom .btn:hover {
+  background:#0a6b47 !important;
+  border-color:#0a6b47 !important;
+  color:#ffffff !important;
+  filter:none !important;
+}
+.btn:disabled {background:#7aa894 !important;border-color:#7aa894 !important;color:#eef7f2 !important;box-shadow:none}
+/* Mantém os estados especiais que não são botões CTA */
+.x{box-shadow:none !important}
+.title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.admin-section-toggle{padding:7px 11px;border-radius:999px;font-size:11px;font-weight:800;line-height:1}
+.admin-section-toggle[hidden]{display:none !important}
+.section-hidden-note{font-size:12px;color:#6b7f73;margin-top:10px;background:#f4f8f5;border:1px dashed #cfe0d4;border-radius:12px;padding:12px 14px}
+
+/* Todos os banners novos ocupam a faixa completa como o Yes! Park.
+   A imagem enviada já é convertida para as dimensões exatas 1600x370. */
+#home-hero.hero.hero-banner {
+  box-sizing:border-box;
+  width:100%; height:240px; min-height:240px;
+  padding:0 !important; overflow:hidden; border-radius:20px;
+  display:flex; align-items:center; justify-content:center;
+  background:#eaf4e7 !important;
+}
+#home-hero.hero.hero-banner .hero-banner-img {
+  display:block; width:100%; height:100%; max-height:none; max-width:none;
+  object-fit:fill !important; object-position:center;
+  margin:0; border-radius:20px; box-shadow:none;
+}
+.banner-fit-help {margin-top:5px;line-height:1.5}
+.banner-fit-preview {margin-top:12px;display:none;padding:8px;background:#f0f7ee;border:1px solid #d5e8d5;border-radius:12px}
+.banner-fit-preview img {width:100%;height:auto;aspect-ratio:1600/370;object-fit:fill;border-radius:8px;display:block}
+.banner-fit-preview .hint {margin-top:5px}
+@media(max-width:580px) {
+  #home-hero.hero.hero-banner {height:220px;min-height:220px;padding:0 !important}
+  #home-hero.hero.hero-banner .hero-banner-img {width:100%;height:100%;max-height:none;object-fit:fill !important}
+}
+@media(max-width:480px) {
+  #home-hero.hero.hero-banner {height:220px;min-height:220px}
+}
+
+/* Ao ocultar ofertas, retirar a seção INTEIRA da home do morador.
+   Mesmo com estilos display:flex/grid, o atributo hidden deve prevalecer. */
+#home-promos-section[hidden],
+#home-promos[hidden],
+#home-promos-hidden-note[hidden],
+#home-promos-toggle[hidden] { display:none !important; }
+#home-promos-section[data-visible="0"] .carousel-tools { display:none !important; }
+
+/* Documentos legais e canal de privacidade */
+.legal-dialog{width:min(760px,100%);max-height:88vh;overflow:auto}
+.legal-content{font-size:14px;line-height:1.65;color:#324b3d}
+.legal-content h4{font-size:15px;line-height:1.3;margin:18px 0 7px;color:#153f2b}
+.legal-content p{margin:8px 0 11px}
+.legal-content ul{margin:6px 0 15px;padding-left:20px}
+.legal-content li{margin-bottom:5px}
+.legal-content a{overflow-wrap:anywhere}
+.legal-muted{font-size:12px;color:#6e806f}
+.legal-contact-card{padding:13px 15px;border:1px solid #d6e8d8;background:#f3f9f2;border-radius:13px;margin:13px 0}
+.legal-contact-card strong{display:block;color:#20583c;margin-bottom:4px}
+.legal-contact-warning{background:#fff7e8;border-color:#ecd7ae;color:#71521a}
+.admin-legal-fieldset{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.admin-legal-fieldset .field{min-width:0}
+.legal-state{margin:8px 0 14px}
+.footer-legal{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px}
+.footer .admin-entry{font-size:12px}
+@media(max-width:580px){.admin-legal-fieldset{grid-template-columns:1fr}.legal-content{font-size:13px}}
+
+/* Categorias personalizadas e botões sociais | Beta Yes! Park */
+#conecta .category-control {display:flex;align-items:stretch;gap:8px;min-width:0}
+#conecta .category-control select {flex:1;min-width:0;width:0}
+#conecta .category-plus {min-width:43px;padding:9px 13px;font-size:22px;line-height:1.1;border-radius:10px}
+#conecta .category-add-panel {display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;align-items:center}
+#conecta .category-add-panel[hidden] {display:none!important}
+#conecta .category-add-panel input {flex:1 1 150px;min-width:0}
+#conecta .category-add-panel .btn {flex:0 0 auto}
+#conecta .social-link {text-decoration:none}
+#conecta .card-actions {flex-wrap:wrap}
+#conecta .card-actions .btn {flex:1 1 91px;min-width:0;white-space:nowrap;padding:10px 7px;font-size:11px}
+#conecta .rating-card {display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+#conecta .rating-card .btn {flex:1 1 auto}
+@media (max-width:390px){#conecta .card-actions .btn{flex-basis:45%}}
+
+/* Redes sociais no cartão: Ver empresa | WhatsApp | Instagram. */
+#home-businesses .card-actions, #businesses-list .card-actions,
+#home-services .card-actions, #services-list .card-actions {
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:6px;
+}
+#home-businesses .card-actions .btn, #businesses-list .card-actions .btn,
+#home-services .card-actions .btn, #services-list .card-actions .btn {
+ width:100%; min-width:0; white-space:nowrap; font-size:10px;
+ padding:10px 3px; line-height:1.25; overflow:hidden; text-overflow:ellipsis;
+}
+#conecta .social-unavailable, #conecta .social-unavailable:hover {
+ background:#e2e9df !important;
+ border-color:#d5e0d2 !important;
+ color:#5e7365 !important;
+ box-shadow:none !important; filter:none !important;
+}
+@media(max-width:360px){
+ #home-businesses .card-actions .btn, #businesses-list .card-actions .btn,
+ #home-services .card-actions .btn, #services-list .card-actions .btn {font-size:9px;padding:9px 2px}
+}
+
+/* ================================================================
+   YES! PARK — VERSÃO RESPONSIVA MOBILE (28/10/2026)
+   Mantém o banner desktop intacto. Arte do banner não é cortada
+   nem esticada no celular; a legenda é construída a partir do
+   título e subtítulo já cadastrados no painel.
+   ================================================================ */
+#conecta .yp-banner-visual{width:100%;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#conecta .yp-banner-caption{display:none}
+#conecta #home-hero.hero-banner-responsive .yp-banner-visual .hero-banner-img{
+  display:block;width:100%;height:100%;min-width:0;max-height:none;
+  object-fit:fill !important;border-radius:inherit;margin:0;box-shadow:none
+}
+#conecta #home-hero.hero-banner-responsive .yp-banner-visual{border-radius:inherit}
+@media(max-width:770px){
+  #conecta .main{padding:19px 16px}
+  #conecta .top{gap:10px;min-width:0}
+  #conecta .brand{min-width:0;flex:1}
+  #conecta .brand>span,#conecta .brand>div{min-width:0}
+  #conecta .tabs{gap:3px;scroll-padding-inline:12px;padding:0 13px 11px;-webkit-overflow-scrolling:touch}
+  #conecta .tab{min-height:42px;flex-shrink:0}
+  #conecta .section-title{line-height:1.22}
+  #conecta .section-header{min-width:0}
+  #conecta .section-header > div{min-width:0}
+  #conecta .grid{gap:13px}
+  #conecta .card,#conecta .promo{min-width:0}
+  #conecta .card .name{overflow-wrap:anywhere}
+  #conecta .detail-image{max-width:100%}
+  #conecta .admin-section{max-width:100%;overflow-wrap:anywhere}
+  #conecta .form-split{grid-template-columns:minmax(0,1fr)}
+  #conecta .field input,#conecta .field select,#conecta .field textarea{max-width:100%}
+  /* Banner genérico (sem imagem): texto sempre visível, sem invadir a seta */
+  #conecta #home-hero.hero:not(.hero-banner):not(.hero-yespark-wide) .hero-content{padding-right:37px}
+  #conecta #home-hero.hero:not(.hero-banner):not(.hero-yespark-wide) h1{font-size:clamp(25px,5.8vw,36px);overflow-wrap:anywhere}
+}
+@media(max-width:580px){
+  #conecta .main{padding:16px 13px 20px}
+  #conecta .section{margin:23px 0 26px}
+  #conecta .section-header:has(.carousel-tools){gap:12px}
+  #conecta .section-header .carousel-tools{flex-wrap:wrap;justify-content:flex-end}
+  #conecta .hero{border-radius:18px}
+  #conecta #home-hero .hero-next-arrow{
+    right:12px;width:39px;height:39px;font-size:27px;
+    background:#0f704d;box-shadow:0 4px 14px #0a4a3333;z-index:5
+  }
+  #conecta #home-hero .hero-overlay-nav,
+  #conecta #home-hero.hero-yespark-wide .hero-overlay-nav{
+    left:18px;bottom:15px;z-index:5
+  }
+  #conecta #home-hero .banner-dots{gap:7px}
+  #conecta #home-hero .banner-dots button{height:7px;min-width:18px;border-radius:30px}
+  /* Banners institucionais: mesma paleta, mesma logo e textos, 
+     recompostos para leitura real em 320–580px. */
+  #conecta #home-hero.hero.hero-yespark-wide{
+    display:grid !important;grid-template-columns:94px minmax(0,1fr);
+    grid-template-rows:auto auto auto auto;align-content:center;align-items:center;
+    gap:9px 13px;height:auto !important;min-height:328px;
+    padding:22px 21px 44px !important;overflow:hidden
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-logo{
+    width:94px;height:102px;flex:none;grid-column:1;grid-row:1;
+    object-fit:contain;align-self:center
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-copy{display:contents}
+  #conecta #home-hero.hero-yespark-wide .yp-wide-eyebrow{
+    grid-column:2;grid-row:1;align-self:center;
+    display:block;font-size:10px;line-height:1.45;letter-spacing:1.1px;
+    margin:0;overflow-wrap:anywhere
+  }
+  #conecta #home-hero.hero-yespark-wide h1{
+    grid-column:1/-1;grid-row:2;align-self:start;
+    font-size:clamp(23px,6vw,30px);line-height:1.14;letter-spacing:-.75px;
+    margin:3px 42px 0 0;max-width:100%;overflow-wrap:anywhere
+  }
+  #conecta #home-hero.hero-yespark-wide p{
+    grid-column:1/-1;grid-row:3;
+    font-size:13px;line-height:1.55;color:#456c4c;margin:0 24px 0 0;
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-cta{
+    grid-column:1/-1;grid-row:4;justify-self:start;
+    min-height:39px;font-size:12px;padding:10px 14px;margin:2px 0 0
+  }
+  #conecta #home-hero.hero-yespark-wide .hero-next-arrow{top:57%;right:12px}
+  /* Banners de imagem: jamais forçar 1600x370 a ocupar 360x220.
+     Preserva a imagem inteira e cria bloco de informação legível. */
+  #conecta #home-hero.hero.hero-banner-responsive{
+    display:flex !important;flex-direction:column;justify-content:flex-start;
+    align-items:stretch;gap:0;height:auto !important;min-height:unset !important;
+    padding:0 !important;border-radius:18px;
+    background:linear-gradient(155deg,#f6ffef,#f5faef 65%,#fff3d8) !important;
+    border:1px solid #dbebd6;overflow:hidden
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-visual{
+    display:block;width:100%;height:auto !important;max-height:none;
+    aspect-ratio:1600/370;min-height:0;overflow:hidden;border-radius:0;
+    background:#eaf4e7
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-visual .hero-banner-img{
+    width:100%;height:100%;object-fit:contain !important;object-position:center;
+    border:0;border-radius:0;max-height:none
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-caption{
+    display:flex;flex-direction:column;align-items:flex-start;
+    min-height:176px;padding:19px 60px 48px 19px;gap:6px;
+    text-align:left;color:#0b523a;z-index:2;position:relative
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-caption-label{
+    font-size:9px;letter-spacing:1.2px;color:#368153;font-weight:850
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-caption h2{
+    margin:2px 0 0;font-size:clamp(21px,5.7vw,27px);
+    line-height:1.15;letter-spacing:-.55px;color:#0c543b;
+    overflow-wrap:anywhere
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-caption p{
+    margin:0 0 4px;font-size:12px;line-height:1.5;color:#54745c;
+    overflow-wrap:anywhere
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-caption .btn{
+    min-height:38px;font-size:11px;padding:9px 13px;margin-top:3px
+  }
+  #conecta #home-hero.hero-banner-responsive .hero-next-arrow{
+    top:calc((100vw - 26px) * (370 / 1600) + 83px);right:12px;
+  }
+  #conecta #home-hero.hero-banner-responsive .hero-overlay-nav{left:19px;bottom:17px}
+  /* Cards e botões de contato: sem cortes. */
+  #conecta #home-businesses .card-actions,
+  #conecta #businesses-list .card-actions,
+  #conecta #home-services .card-actions,
+  #conecta #services-list .card-actions{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  #conecta #home-businesses .card-actions .btn,
+  #conecta #businesses-list .card-actions .btn,
+  #conecta #home-services .card-actions .btn,
+  #conecta #services-list .card-actions .btn{
+    min-height:39px;padding:10px 4px;white-space:normal;
+    overflow-wrap:anywhere;line-height:1.25;font-size:10px;
+    text-overflow:clip
+  }
+  #conecta .searchbox{max-width:100%;min-width:0}
+  #conecta .bottom{gap:12px}
+  #conecta .footer{line-height:1.7}
+  #conecta .overlay .modal{max-width:calc(100vw - 24px);max-height:calc(100dvh - 26px);overflow-y:auto}
+  #conecta .admin-actions{flex-wrap:wrap}
+  #conecta .admin-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+}
+@media(max-width:360px){
+  #conecta #home-hero.hero.hero-yespark-wide{
+    grid-template-columns:78px minmax(0,1fr);gap:8px 11px;padding:17px 15px 40px !important
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-logo{width:78px;height:90px}
+  #conecta #home-hero.hero-yespark-wide h1{font-size:22px;margin-right:57px}
+  #conecta #home-hero.hero-yespark-wide p{font-size:12px}
+  #conecta .top{padding:10px}
+  #conecta .brand{font-size:14px}
+  #conecta .tab{padding:9px 10px}
+  #conecta #home-hero.hero-banner-responsive .yp-banner-caption{padding-right:52px}
+  #conecta .card-actions .btn{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){#conecta #home-hero .hero-next-arrow{transition:none}}
+
+/* Propagandas: formato panorâmico original padronizado em 3:1.
+   Artes indicadas: 1200 x 400 px (ou 1500 x 500 px).
+   A arte correta em 3:1 não sofre corte no computador nem no celular. */
+#conecta .promo .ad-cover{
+ width:100%;height:auto!important;max-height:none!important;
+ aspect-ratio:3 / 1;object-fit:cover!important;object-position:center;
+ border-radius:12px;display:block;background:transparent;
+}
+#conecta .ad-detail-image{
+ display:block;width:100%;height:auto!important;max-height:none!important;
+ object-fit:contain!important;border-radius:13px;margin:12px 0 16px;
+}
+#conecta .card-head .avatar,
+#conecta .admin-row .avatar,
+#conecta .listing-title-avatar .avatar{
+ width:52px;height:52px;border-radius:15px;overflow:hidden;display:grid;place-items:center;
+ flex-shrink:0;
+}
+#conecta .avatar-image{display:block;width:100%;height:100%;object-fit:contain;object-position:center;background:#fff;}
+#conecta .avatar-image.avatar-owner{object-fit:cover;object-position:center 32%;}
+#conecta .listing-title-avatar{display:flex;align-items:center;gap:12px;min-width:0;}
+#conecta .listing-title-avatar>div{min-width:0;}
+#conecta .profile-image-preview{display:flex;align-items:center;gap:12px;background:#f5faee;border:1px solid #e2ecdd;border-radius:12px;padding:10px 12px;margin:8px 0 15px;color:#5d7765;font-size:12px;}
+#conecta .profile-image-preview .avatar{width:57px;height:57px;border-radius:14px;overflow:hidden;display:grid;place-items:center;flex:0 0 auto;}
+@media(max-width:580px){
+ #conecta .promo .ad-cover{width:100%;height:auto!important;max-height:none!important;aspect-ratio:3 / 1;object-fit:cover!important;}
+ #conecta .card-head .avatar{width:50px;height:50px;}
+ #conecta .listing-title-avatar .avatar{width:48px;height:48px;}
+}
+
+/* Marca circular da Limpoou: mantém a arte integral, sem fundo preto */
+#conecta .avatar.is-brand-circle{border-radius:50%!important;background:transparent;overflow:hidden;padding:0;box-shadow:none}
+#conecta .avatar.is-brand-circle .avatar-image{border-radius:50%;object-fit:contain;background:transparent}
+
+/* Contato público no rodapé – WhatsApp não presumido para este número. */
+#conecta .footer-support{max-width:980px;width:100%;margin:0 auto 16px;padding:19px 21px;border:1px solid #d7e8d9;border-radius:18px;background:linear-gradient(120deg,#f5fbf2,#ecf7eb);display:flex;align-items:center;justify-content:space-between;gap:22px;text-align:left}
+#conecta .footer-support-copy{min-width:0;flex:1}
+#conecta .footer-support h2{font-size:17px;line-height:1.3;letter-spacing:-.4px;font-weight:850;color:#174d35;margin:0 0 6px}
+#conecta .footer-support p{font-size:12px;line-height:1.65;color:#5b7865;margin:0;max-width:590px}
+#conecta .footer-support-phone{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:11px 18px;min-height:60px;border-radius:13px;background:#106446;color:#fff!important;text-decoration:none;box-shadow:0 6px 17px #12624718}
+#conecta .footer-support-phone:hover,#conecta .footer-support-phone:focus-visible{background:#094c34;outline-offset:3px}
+#conecta .footer-support-phone-label{font-size:10px;font-weight:650;color:#d2f2dc;letter-spacing:.2px}
+#conecta .footer-support-phone strong{font-size:16px;white-space:nowrap;letter-spacing:.2px;font-weight:850}
+#conecta .footer-signature{margin-bottom:8px}
+@media(max-width:580px){#conecta .footer-support{flex-direction:column;align-items:stretch;gap:13px;padding:17px 15px;border-radius:15px}#conecta .footer-support h2{font-size:16px}#conecta .footer-support p{font-size:12px}#conecta .footer-support-phone{width:100%;min-height:56px}#conecta .footer-support-phone strong{font-size:17px}}
+
+/* YES! PARK · BANNER COMPACTO (REFERÊNCIA MOBILE TERABYTE, 29/10/2026)
+   Única alteração funcional: composição mobile do carrossel principal.
+   Preserva a proporção, o conteúdo e as imagens do site desktop.
+   Os anúncios da seção Propaganda continuam 3:1 (1200x400).
+*/
+@media (max-width: 820px) {
+  #conecta #home-hero.hero,
+  #conecta #home-hero.hero.hero-banner,
+  #conecta #home-hero.hero.hero-yespark-wide,
+  #conecta #home-hero.hero.hero-banner-responsive {
+    box-sizing:border-box;
+    width:100%;
+    height:clamp(108px,30vw,228px) !important;
+    min-height:0 !important;
+    max-height:228px !important;
+    border-radius:14px !important;
+    overflow:hidden !important;
+    margin:0;
+  }
+  /* Original institucional: mantém logo e headline em uma faixa curta. */
+  #conecta #home-hero.hero.hero-yespark-wide {
+    display:flex !important;
+    flex-direction:row !important;
+    justify-content:flex-start !important;
+    align-items:center !important;
+    gap:clamp(10px,2.2vw,20px) !important;
+    padding:clamp(10px,2vw,18px) clamp(43px,6vw,66px) clamp(18px,2.5vw,28px) clamp(10px,2vw,20px) !important;
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-logo {
+    display:block;
+    flex:0 0 clamp(66px,18vw,150px) !important;
+    width:clamp(66px,18vw,150px) !important;
+    height:clamp(66px,18vw,150px) !important;
+    max-width:25%;
+    object-fit:contain;
+    grid-area:auto !important;
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-copy {
+    display:flex !important;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    gap:clamp(3px,.65vw,7px);
+    flex:1 1 auto;
+    min-width:0;
+    padding:0;
+    grid-area:auto !important;
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-eyebrow {
+    display:block !important;
+    font-size:clamp(7px,1.65vw,11px) !important;
+    line-height:1.15 !important;
+    letter-spacing:.3px !important;
+    margin:0 !important;
+    max-width:100%;
+    grid-area:auto !important;
+  }
+  #conecta #home-hero.hero-yespark-wide h1 {
+    display:block !important;
+    font-size:clamp(14px,3.85vw,29px) !important;
+    line-height:1.08 !important;
+    letter-spacing:-.3px !important;
+    margin:0 !important;
+    max-width:100% !important;
+    font-weight:900;
+    grid-area:auto !important;
+  }
+  #conecta #home-hero.hero-yespark-wide p {
+    display:block;
+    font-size:clamp(9px,1.65vw,12px) !important;
+    line-height:1.3 !important;
+    color:#416c50;
+    margin:0 !important;
+    grid-area:auto !important;
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-cta {
+    display:none !important;
+  }
+  /* Banners de imagem: 1600x370 preservado sem distorção, legenda inferior removida.
+     A área total é a mesma dos slides institucionais, sem pular de altura. */
+  #conecta #home-hero.hero.hero-banner-responsive {
+    display:block !important;
+    padding:0 !important;
+    background:#f5f8f1 !important;
+    border:1px solid #d7e7d5;
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-visual {
+    display:flex !important;
+    width:100% !important;
+    height:100% !important;
+    aspect-ratio:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden;
+    border-radius:inherit !important;
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-visual .hero-banner-img {
+    display:block;
+    width:100% !important;
+    height:100% !important;
+    max-height:none !important;
+    aspect-ratio:auto !important;
+    object-fit:contain !important;
+    object-position:center !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    margin:0 !important;
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-caption {
+    display:none !important;
+  }
+  #conecta #home-hero .hero-next-arrow,
+  #conecta #home-hero.hero-banner-responsive .hero-next-arrow {
+    top:50% !important;
+    right:8px !important;
+    transform:translateY(-50%) !important;
+    width:clamp(30px,5.8vw,39px) !important;
+    height:clamp(30px,5.8vw,39px) !important;
+    padding:0 0 2px 0 !important;
+    font-size:clamp(21px,4vw,28px) !important;
+    z-index:5;
+    background:rgba(13,95,64,.82);
+  }
+  #conecta #home-hero .hero-overlay-nav,
+  #conecta #home-hero.hero-yespark-wide .hero-overlay-nav,
+  #conecta #home-hero.hero-banner-responsive .hero-overlay-nav {
+    position:absolute;
+    left:clamp(8px,2vw,18px) !important;
+    bottom:6px !important;
+    right:auto;
+    top:auto;
+    width:auto;
+    z-index:4;
+  }
+  #conecta #home-hero .banner-dots {gap:5px;}
+  #conecta #home-hero .banner-dots button {width:14px;min-width:14px;height:5px;border-radius:20px;}
+  #conecta #home-hero .banner-dots button.active {width:26px;min-width:26px;}
+  #conecta #home-hero.hero:not(.hero-banner):not(.hero-yespark-wide) {
+    display:flex;
+    align-items:center;
+    padding:clamp(14px,3vw,22px) 50px clamp(17px,2vw,22px) 18px !important;
+  }
+  #conecta #home-hero.hero:not(.hero-banner):not(.hero-yespark-wide) .hero-content {padding:0 !important;}
+  #conecta #home-hero.hero:not(.hero-banner):not(.hero-yespark-wide) h1 {
+    font-size:clamp(18px,4.1vw,30px) !important;
+    line-height:1.1;
+    margin:4px 0;
+  }
+  #conecta #home-hero.hero:not(.hero-banner):not(.hero-yespark-wide) p {margin:3px 0;font-size:clamp(10px,1.7vw,12px);line-height:1.3;}
+  #conecta #home-hero.hero:not(.hero-banner):not(.hero-yespark-wide) .hero-content .btn {display:none;}
+  #conecta #home-hero.hero:not(.hero-banner):not(.hero-yespark-wide) .hero-art {display:none;}
+}
+@media (max-width: 480px) {
+  #conecta #home-hero.hero.hero-yespark-wide p {display:none !important;}
+  #conecta #home-hero.hero-yespark-wide .yp-wide-eyebrow {font-size:8px !important;line-height:1.25 !important;}
+}
+@media (max-width: 350px) {
+  #conecta #home-hero.hero.hero-yespark-wide {gap:8px !important;padding-left:9px !important;padding-right:39px !important;}
+  #conecta #home-hero.hero-yespark-wide .yp-wide-logo {flex-basis:60px !important;width:60px !important;height:70px !important;}
+  #conecta #home-hero.hero-yespark-wide h1 {font-size:14px !important;}
+}
+
+
+/* YES! PARK — Vitrine desktop: quatro colunas, sem alterar a página Propaganda.
+   O celular continua com 1 coluna e tablets menores com 2–3 colunas. */
+@media (min-width:1100px) {
+  #conecta #home-services,
+  #conecta #home-businesses,
+  #conecta #services-list,
+  #conecta #businesses-list {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    column-gap:17px;
+    row-gap:20px;
+  }
+  #conecta #home-services > .card,
+  #conecta #home-businesses > .card,
+  #conecta #services-list > .card,
+  #conecta #businesses-list > .card {
+    padding:14px;
+    border-radius:18px;
+    box-shadow:0 8px 24px rgba(23,79,45,.045);
+  }
+  #conecta #home-services .card-head .avatar,
+  #conecta #home-businesses .card-head .avatar,
+  #conecta #services-list .card-head .avatar,
+  #conecta #businesses-list .card-head .avatar {width:46px;height:46px;}
+  #conecta #home-services .name,
+  #conecta #home-businesses .name,
+  #conecta #services-list .name,
+  #conecta #businesses-list .name {font-size:13px;line-height:1.28;}
+  /* Com quatro cards por fileira, mantém botões inteiros e fáceis de tocar. */
+  #conecta #home-services .card-actions,
+  #conecta #home-businesses .card-actions,
+  #conecta #services-list .card-actions,
+  #conecta #businesses-list .card-actions {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px;
+  }
+  #conecta #home-services .card-actions > :first-child,
+  #conecta #home-businesses .card-actions > :first-child,
+  #conecta #services-list .card-actions > :first-child,
+  #conecta #businesses-list .card-actions > :first-child { grid-column:1 / -1; }
+  #conecta #home-services .card-actions .btn,
+  #conecta #home-businesses .card-actions .btn,
+  #conecta #services-list .card-actions .btn,
+  #conecta #businesses-list .card-actions .btn {
+    white-space:normal;overflow-wrap:anywhere;text-overflow:clip;
+    font-size:10px;line-height:1.3;min-height:35px;padding:8px 5px;
+  }
+}
+
+/* YES! PARK — Carrosséis reais na página inicial (29/10/2026).
+   Sempre quatro posições no desktop, sem esticar três cadastros para ocupar a tela.
+   Slider acompanha o mouse e o toque; listagens internas permanecem em grade. */
+#conecta .yp-home-slider{position:relative;min-width:0;margin:0 1px;}
+#conecta #home-services.yp-home-rail,
+#conecta #home-businesses.yp-home-rail{
+  --yp-rail-gap:16px;
+  --yp-rail-count:4;
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  align-items:stretch;
+  gap:var(--yp-rail-gap) !important;
+  grid-template-columns:none !important;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-padding-inline:3px;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-y;
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
+  scroll-behavior:smooth;
+  padding:5px 3px 16px;
+  margin:0;
+}
+#conecta #home-services.yp-home-rail::-webkit-scrollbar,
+#conecta #home-businesses.yp-home-rail::-webkit-scrollbar{display:none;}
+#conecta #home-services.yp-home-rail.dragging,
+#conecta #home-businesses.yp-home-rail.dragging{
+  scroll-behavior:auto;scroll-snap-type:none;cursor:grabbing;
+}
+#conecta #home-services.yp-home-rail > .card,
+#conecta #home-businesses.yp-home-rail > .card{
+  flex:0 0 calc((100% - (var(--yp-rail-count) - 1) * var(--yp-rail-gap)) / var(--yp-rail-count)) !important;
+  width:calc((100% - (var(--yp-rail-count) - 1) * var(--yp-rail-gap)) / var(--yp-rail-count));
+  min-width:0;max-width:none;scroll-snap-align:start;
+  display:flex;flex-direction:column;align-self:stretch;
+  padding:16px !important;border-radius:18px;
+  transition:box-shadow .18s ease;
+}
+#conecta .yp-home-rail > .card:hover{transform:none;}
+/* Mantém a altura normal das fotos das empresas, sem o teto de 175px. */
+#conecta .yp-home-rail > .card .detail-image{
+  width:100%;max-height:none;
+  object-fit:cover;pointer-events:none;-webkit-user-drag:none;
+}
+#conecta .yp-home-rail > .card .desc{
+  overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;
+  -webkit-line-clamp:4;line-clamp:4;
+  line-height:1.53;min-height:0;
+}
+#conecta .yp-home-rail > .card .card-actions{margin-top:auto;padding-top:12px;}
+#conecta .yp-home-rail > .empty{flex:1 0 100%;}
+#conecta .yp-home-arrow{
+  position:absolute;top:43%;transform:translateY(-50%);
+  z-index:5;width:42px;height:42px;
+  border:1px solid rgba(255,255,255,.7);border-radius:50%;
+  background:#0d5f40;color:#fff;box-shadow:0 7px 20px rgba(8,71,46,.25);
+  display:grid;place-items:center;font-size:27px;line-height:1;
+  transition:background .15s,opacity .15s;
+}
+#conecta .yp-home-arrow:not(:disabled):hover{background:#11764e;}
+#conecta .yp-home-arrow:disabled{opacity:.23;cursor:default;box-shadow:none;}
+#conecta .yp-home-prev{left:-15px;}
+#conecta .yp-home-next{right:-15px;}
+#conecta .yp-home-rail:focus-visible{outline:2px solid #4caa70;outline-offset:2px;border-radius:16px;}
+@media(max-width:1099px){
+  #conecta #home-services.yp-home-rail,
+  #conecta #home-businesses.yp-home-rail{--yp-rail-count:3;--yp-rail-gap:13px;}
+}
+@media(max-width:770px){
+  #conecta #home-services.yp-home-rail,
+  #conecta #home-businesses.yp-home-rail{--yp-rail-count:2;--yp-rail-gap:12px;}
+  #conecta .yp-home-arrow{width:36px;height:36px;font-size:24px;}
+  #conecta .yp-home-prev{left:-8px;}
+  #conecta .yp-home-next{right:-8px;}
+}
+@media(max-width:550px){
+  #conecta #home-services.yp-home-rail,
+  #conecta #home-businesses.yp-home-rail{--yp-rail-count:1;--yp-rail-gap:12px;}
+  #conecta .yp-home-rail > .card .detail-image{height:235px;}
+  #conecta .yp-home-arrow{top:39%;width:35px;height:35px;}
+}
+@media(prefers-reduced-motion:reduce){#conecta .yp-home-rail{scroll-behavior:auto !important;}}
+
+/* YES! PARK — Correção da grade com fotografias no tamanho original.
+   4 posições reais no desktop, sem comprimir imagens até 175px.
+   Aumenta APENAS a área útil desktop, sem alterar os recortes dos arquivos. */
+@media (min-width:1000px){
+  #conecta.app{width:min(1680px,100%);max-width:none;}
+  #conecta #home-businesses.yp-home-rail,
+  #conecta #home-services.yp-home-rail{
+    --yp-rail-count:4;
+    --yp-rail-gap:18px;
+  }
+  #conecta #home-businesses.yp-home-rail > .card .detail-image,
+  #conecta #home-services.yp-home-rail > .card .detail-image{
+    height:clamp(225px,19vw,325px) !important;
+    max-height:none !important;
+    object-fit:cover !important;
+    object-position:center !important;
+  }
+  /* Quatro cards não devem comprimir os botões de contato. */
+  #conecta #home-businesses.yp-home-rail > .card .card-actions,
+  #conecta #home-services.yp-home-rail > .card .card-actions{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:7px !important;
+    width:100%;
+  }
+  #conecta #home-businesses.yp-home-rail > .card .card-actions > :first-child,
+  #conecta #home-services.yp-home-rail > .card .card-actions > :first-child{
+    grid-column:1 / -1;
+  }
+  #conecta #home-businesses.yp-home-rail > .card .card-actions > *,
+  #conecta #home-services.yp-home-rail > .card .card-actions > *{
+    min-width:0;
+    white-space:normal !important;
+    overflow-wrap:anywhere;
+    line-height:1.25;
+  }
+}
+/* Tablets: 3 (horizontal) ou 2 (vertical), com imagem mais alta que a versão anterior. */
+@media (min-width:771px) and (max-width:999px){
+  #conecta #home-businesses.yp-home-rail,
+  #conecta #home-services.yp-home-rail{--yp-rail-count:3;}
+  #conecta #home-businesses.yp-home-rail > .card .detail-image,
+  #conecta #home-services.yp-home-rail > .card .detail-image{height:225px !important;max-height:none !important;}
+}
+@media (min-width:551px) and (max-width:770px){
+  #conecta #home-businesses.yp-home-rail > .card .detail-image,
+  #conecta #home-services.yp-home-rail > .card .detail-image{height:235px !important;max-height:none !important;}
+}
+@media (max-width:550px){
+  #conecta #home-businesses.yp-home-rail > .card .detail-image,
+  #conecta #home-services.yp-home-rail > .card .detail-image{height:245px !important;max-height:none !important;}
+}
+
+/* YES! PARK — Apresentação de parceiros: prioridade para empresas e título centralizado.
+   Mantém a altura das fotografias, 4 cards e comportamento do carrossel. */
+#conecta #view-home .yp-partners-section{margin-top:34px;}
+#conecta #view-home .yp-partners-heading{
+ position:relative;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;text-align:center;gap:0;
+ margin:0 0 25px;padding:15px 170px 4px;
+}
+#conecta .yp-partners-copy{max-width:860px;width:100%;min-width:0;}
+#conecta .yp-partners-eyebrow{
+ display:block;margin-bottom:10px;color:#318663;font-size:10px;
+ font-weight:850;letter-spacing:2.2px;line-height:1.5;
+}
+#conecta .yp-partners-title{
+ margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ color:#0c4b35;font-weight:900;font-size:clamp(26px,2.65vw,40px);
+ letter-spacing:-1.45px;line-height:1.14;text-wrap:balance;
+}
+#conecta .yp-partners-underline{
+ display:block;width:66px;height:4px;border-radius:100px;
+ margin:14px auto 15px;background:linear-gradient(90deg,#74b68a,#126f4d);
+}
+#conecta .yp-partners-subtitle{
+ margin:0 auto;max-width:670px;font-size:clamp(13px,1vw,15px);
+ line-height:1.7;font-weight:450;letter-spacing:.05px;color:#667f6c;text-wrap:pretty;
+}
+#conecta .yp-partners-subtitle strong{color:#156b4a;font-weight:800;}
+#conecta .yp-partners-more{
+ position:absolute;right:0;top:50%;transform:translateY(-50%);
+ border-radius:13px;padding:12px 18px;white-space:nowrap;
+}
+@media(max-width:1000px){
+ #conecta #view-home .yp-partners-heading{padding:13px 0 0;}
+ #conecta .yp-partners-more{position:static;transform:none;margin:17px auto 0;}
+}
+@media(max-width:550px){
+ #conecta #view-home .yp-partners-section{margin-top:25px;}
+ #conecta #view-home .yp-partners-heading{padding:11px 6px 0;margin-bottom:18px;}
+ #conecta .yp-partners-eyebrow{font-size:9px;letter-spacing:1.6px;margin-bottom:9px;}
+ #conecta .yp-partners-title{font-size:clamp(23px,6.7vw,30px);letter-spacing:-.85px;}
+ #conecta .yp-partners-underline{margin:11px auto 11px;}
+ #conecta .yp-partners-subtitle{font-size:13px;line-height:1.55;}
+ #conecta .yp-partners-more{margin-top:13px;font-size:11px;padding:10px 15px;}
+}
+
+
+/* Convite discreto de divulgação: neutro-areia com acento cobre, sem faixa publicitária. */
+#conecta #view-home .yp-business-cta{
+  display:flex;justify-content:center;align-items:center;gap:10px 18px;
+  flex-wrap:wrap;max-width:760px;width:calc(100% - 2px);
+  margin:15px auto 36px;padding:14px 19px;
+  background:#faf7f1;border:1px solid #eee4d7;border-radius:14px;
+  text-align:center;box-shadow:none;
+}
+#conecta .yp-business-cta-text{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:clamp(12px,1.1vw,14px);font-weight:450;
+  line-height:1.45;letter-spacing:-.05px;color:#796d5e;
+}
+#conecta .yp-business-cta-link{
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  padding:5px 1px;border:0;background:transparent;
+  color:#a16637;text-decoration:none;font-size:clamp(12px,1.1vw,14px);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:750;line-height:1.4;white-space:nowrap;
+}
+#conecta .yp-business-cta-link:hover{color:#80502c;text-decoration:underline;text-underline-offset:3px;}
+#conecta .yp-business-cta-link:focus-visible{outline:2px solid #a16637;outline-offset:3px;border-radius:4px;}
+@media(max-width:550px){
+  #conecta #view-home .yp-business-cta{margin:13px auto 30px;padding:13px 12px;gap:4px 10px;}
+  #conecta .yp-business-cta-text{font-size:12px;}
+  #conecta .yp-business-cta-link{font-size:12px;}
+}
+
+/* Mesmo piso para avaliações e ações, independentemente do tamanho da descrição.
+   Altura auto permite ao flex carousel realmente esticar os cards até a mesma linha.
+   Não altera tamanho, proporção ou enquadramento das fotografias. */
+#conecta #home-services.yp-home-rail,
+#conecta #home-businesses.yp-home-rail{align-items:stretch!important;}
+#conecta #home-services.yp-home-rail > .card,
+#conecta #home-businesses.yp-home-rail > .card{
+  height:auto!important;align-self:stretch!important;min-height:0;
+}
+#conecta #home-services.yp-home-rail > .card .rating,
+#conecta #home-businesses.yp-home-rail > .card .rating,
+#conecta #services-list > .card .rating,
+#conecta #businesses-list > .card .rating{margin-top:auto!important;}
+#conecta #home-services.yp-home-rail > .card .card-actions,
+#conecta #home-businesses.yp-home-rail > .card .card-actions{
+  flex-shrink:0;margin-top:12px!important;padding-top:0!important;
+}
+
+/* Tipografia Apple Clássico para nome das empresas e prestadores, sem mudar os cards. */
+#conecta .card .name{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:15px;font-weight:800;letter-spacing:-.4px;line-height:1.3;
+}
+@media(max-width:750px){
+}
+@media(max-width:390px){
+  #conecta .card .name{font-size:14px;}
+}
+
+/* YES! PARK — somente os banners na home em "Serviços recomendados".
+   Padrão 2048 x 682 (aprox. 3:1), com escala proporcional e sem deformação.
+   Não altera empresas, propagandas, banner principal nem catálogo de serviços. */
+#conecta #view-home .yp-services-highlight-section{margin-top:34px;}
+#conecta #view-home .yp-services-heading{margin-bottom:22px;}
+#conecta .yp-services-heading .yp-partners-title{max-width:780px;}
+#conecta .yp-services-heading .yp-partners-subtitle{max-width:520px;}
+#conecta #home-services.yp-home-rail > .card > img.detail-image {
+  display:block;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:2048 / 682 !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  background:#f0f6ee;
+  border-radius:14px;
+}
+
+/* YES! PARK — Carrossel principal no celular: altura aprovada de 170 px.
+   Não modifica iPads/tablets (largura acima de 580px), desktop, propagandas
+   ou imagens dos cards. Preserva integralmente a arte panorâmica. */
+@media (max-width:580px){
+  #conecta #home-hero.hero,
+  #conecta #home-hero.hero.hero-banner,
+  #conecta #home-hero.hero.hero-yespark-wide,
+  #conecta #home-hero.hero.hero-banner-responsive{
+    height:170px !important;
+    min-height:170px !important;
+    max-height:170px !important;
+  }
+  #conecta #home-hero.hero.hero-yespark-wide{
+    gap:clamp(10px,2.8vw,14px) !important;
+    padding:12px 47px 19px 13px !important;
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-logo{
+    width:clamp(74px,22vw,104px) !important;
+    height:clamp(74px,22vw,104px) !important;
+    flex-basis:clamp(74px,22vw,104px) !important;
+  }
+  #conecta #home-hero.hero-yespark-wide h1{
+    font-size:clamp(17px,5vw,24px) !important;
+    line-height:1.12 !important;
+  }
+  #conecta #home-hero.hero-yespark-wide .yp-wide-eyebrow{
+    font-size:clamp(8px,1.8vw,10px) !important;
+    line-height:1.23 !important;
+  }
+  #conecta #home-hero.hero.hero-yespark-wide p{
+    display:block !important;
+    font-size:10px !important;
+    line-height:1.3 !important;
+  }
+  #conecta #home-hero.hero-banner-responsive .yp-banner-visual{
+    height:100% !important;
+    min-height:0 !important;
+    aspect-ratio:auto !important;
+  }
+  #conecta #home-hero.hero-banner-responsive .hero-banner-img{
+    object-fit:contain !important;
+  }
+}
+@media (max-width:350px){
+  #conecta #home-hero.hero.hero-yespark-wide{gap:8px !important;padding-right:38px !important;}
+  #conecta #home-hero.hero-yespark-wide .yp-wide-logo{
+    width:70px !important;height:76px !important;flex-basis:70px !important;
+  }
+  #conecta #home-hero.hero.hero-yespark-wide p{font-size:9px !important;}
+  #conecta #home-hero.hero-yespark-wide h1{font-size:17px !important;}
+}

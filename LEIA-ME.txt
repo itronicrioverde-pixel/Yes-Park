@@ -1,10 +1,32 @@
-YES! PARK — ÍCONE NA TELA INICIAL
+CONECTA SERVIÇOS — YES! PARK
+ETAPA 01 — SEPARAÇÃO DA ESTRUTURA
 
-1. Envie TODOS estes arquivos juntos para a raiz do seu repositório GitHub Pages.
-2. Não é suficiente publicar só o index.html: o Apple Touch Icon e o manifesto precisam estar disponíveis no mesmo endereço.
-3. No iPhone: Safari > Compartilhar > Adicionar à Tela de Início.
-4. No Android: Chrome > menu > Instalar app ou Adicionar à tela inicial.
-5. Se o ícone antigo persistir, remova o atalho anterior e adicione-o novamente.
+Base: YESPARK_OTIMIZADO_GITHUB_COMPLETO.zip (23/11/2026).
+O conteúdo do CSS e dos dois scripts foi extraído sem alterar suas instruções.
+A configuração Supabase, a estrutura visual, o manifesto, os ícones e as imagens foram mantidos.
+Não houve alterações no banco de dados.
 
-A logo oficial foi usada como fornecida, sem modificação dos traços, proporção ou cores.
-A atualização não muda os registros no Supabase nem outras partes do site.
+ARQUIVOS
+index.html           Estrutura e referências dos arquivos
+css/app.css          Estilos existentes
+js/config.js         Configuração pública do Supabase e banners
+js/app.js            Lógica existente do aplicativo
+assets/              Imagens originais do pacote otimizado
+manifest.webmanifest e ícones  Configuração existente da tela inicial
+
+VALIDAÇÃO REALIZADA
+- Sintaxe JavaScript verificada com node --check.
+- CSS e JavaScript extraídos conferidos byte a byte com o original.
+- Corpo HTML, exceto referências de script, idêntico ao original.
+- Referências locais e ícones do manifesto conferidos.
+- Testes em navegador impedidos pela restrição de navegação do ambiente.
+- Nenhum teste de produção ou alteração de registros foi executado.
+
+PUBLICAÇÃO (SOMENTE APÓS VALIDAR A PRÉVIA)
+1. Guarde o ZIP anterior como cópia de segurança.
+2. Extraia este ZIP. Todos os arquivos e pastas precisam permanecer juntos.
+3. Na raiz do repositório do GitHub, envie index.html, css/, js/, assets/ e os arquivos de ícones e manifesto, preservando os caminhos.
+4. Confirme o deploy e confira o site em celular e computador: início, carrosséis, empresas, serviços, busca, paginação, avaliações e painel administrativo.
+5. Se houver problema, restaure o conteúdo do ZIP anterior; esta etapa não mudou o banco.
+
+As referências CSS e JS incluem uma identificação baseada em seu conteúdo para reduzir o risco de cache antigo. Não foi implementado sistema de atualização automática, novo ambiente ou divisão em módulos nesta etapa.
