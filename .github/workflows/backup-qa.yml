@@ -1,0 +1,16 @@
+name: Yes Park - backup QA
+on:
+  pull_request:
+    branches: [main]
+    paths: ['js/backup.js','js/vendor/**','tests/backup.test.mjs','index.html','js/app.js','.github/workflows/backup-qa.yml']
+permissions:
+  contents: read
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: node tests/backup.test.mjs
