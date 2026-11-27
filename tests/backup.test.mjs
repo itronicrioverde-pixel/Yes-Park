@@ -1,0 +1,28 @@
+import {readFileSync} from 'node:fs';
+import {createRequire} from 'node:module';
+import assert from 'node:assert/strict';
+import {webcrypto} from 'node:crypto';
+const require=createRequire(import.meta.url);
+globalThis.JSZip=require('../js/vendor/jszip-3.10.1.min.js');
+if(!globalThis.crypto)globalThis.crypto=webcrypto;
+await import('../js/backup.js');
+const {buildArchive,readArchive}=globalThis.YesparkBackup;
+const origin='https://example.supabase.co';
+const data={listing_categories:[],listings:[],ads:[],banners:[],reviews:[],site_settings:[],legal_contact:[]};
+const name='logos/qa.webp',img=new Uint8Array([82,73,70,70,4,0,0,0,87,69,66,80,1,2,3]);
+const snap={tables:{...data,listings:[{id:'qa',image_url:origin+'/storage/v1/object/public/yespark-media/'+name}]},media:[{name,size:img.length,type:'image/webp'}]};
+let count=0;
+async function test(label,fn){await fn();console.log('PASS '+label);count++}
+let archive;
+await test('export and ZIP round-trip',async()=>{archive=await buildArchive(snap,origin,async()=>img);const a=await readArchive(new Blob([archive]),origin);assert.deepEqual(a.tables,snap.tables);assert.deepEqual(a.files.get(name),img)});
+await test('empty catalog round-trip',async()=>{const a=await buildArchive({tables:data,media:[]},origin,()=>{throw Error('unexpected download')});assert.equal((await readArchive(new Blob([a]),origin)).files.size,0)});
+await test('corrupt ZIP rejected',async()=>{const b=archive.slice();b[40]^=1;await assert.rejects(readArchive(new Blob([b]),origin))});
+await test('another project rejected',async()=>assert.rejects(readArchive(new Blob([archive]),'https://other.supabase.co')));
+await test('missing media rejected',async()=>assert.rejects(buildArchive({...snap,media:[]},origin,async()=>img)));
+await test('invalid media type rejected',async()=>assert.rejects(buildArchive(snap,origin,async()=>new Uint8Array(img.length))));
+await test('unsafe media path rejected',async()=>assert.rejects(buildArchive({tables:data,media:[{name:'../bad.webp',size:img.length,type:'image/webp'}]},origin,async()=>img)));
+await test('compressed archive rejected',async()=>{const zip=new JSZip();zip.file('manifest.json','a'.repeat(1000));zip.file('tables.json','b'.repeat(1000));const b=await zip.generateAsync({type:'uint8array',compression:'DEFLATE'});await assert.rejects(readArchive(new Blob([b]),origin))});
+await test('unexpected archive file rejected',async()=>{const zip=new JSZip();zip.file('manifest.json','{}');zip.file('tables.json','{}');zip.file('unexpected.txt','x');const b=await zip.generateAsync({type:'uint8array',compression:'STORE'});await assert.rejects(readArchive(new Blob([b]),origin))});
+await test('hash tampering rejected',async()=>{const zip=await JSZip.loadAsync(archive);zip.file('tables.json',JSON.stringify(data));const b=await zip.generateAsync({type:'uint8array',compression:'STORE'});await assert.rejects(readArchive(new Blob([b]),origin))});
+await test('app and backup syntax and HTML integration',async()=>{new Function(readFileSync('js/app.js','utf8'));new Function(readFileSync('js/backup.js','utf8'));const h=readFileSync('index.html','utf8');assert(h.includes('id="yespark-backup-panel"'));assert(h.includes('js/backup.js?v=20261127-backup1'));assert(h.indexOf('js/backup.js')<h.indexOf('js/app.js'))});
+console.log('Total: '+count+' passed');
