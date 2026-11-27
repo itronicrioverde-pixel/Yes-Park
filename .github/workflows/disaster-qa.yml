@@ -1,0 +1,34 @@
+name: Yes Park - recuperacao e carga isoladas
+on:
+  pull_request:
+    branches: [main]
+    paths: ['recovery/**','tests/disaster-qa.mjs','.github/workflows/disaster-qa.yml']
+permissions:
+  contents: read
+jobs:
+  restore:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.79.0
+      - run: |
+          supabase --version
+          supabase init
+          supabase migration new replay_schema
+          cp recovery/schema-replay.sql "$(find supabase/migrations -name '*_replay_schema.sql' -print -quit)"
+          supabase start -x realtime,imgproxy,studio,edge-runtime,logflare,vector,supavisor,postgres-meta
+      - run: |
+          npm install --no-save --no-package-lock @supabase/supabase-js@2.57.0
+          supabase status -o env > /tmp/qa-local.env
+          set -a
+          source /tmp/qa-local.env
+          set +a
+          node tests/disaster-qa.mjs
+      - if: always()
+        run: supabase stop --no-backup
