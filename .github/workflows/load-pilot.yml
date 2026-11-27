@@ -1,0 +1,62 @@
+name: Yes Park - carga controlada piloto
+on:
+  pull_request:
+    branches: [main]
+    paths: ['.github/workflows/load-pilot.yml']
+permissions:
+  contents: read
+jobs:
+  load:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          import {performance} from 'node:perf_hooks';
+          const c=readFileSync('js/config.js','utf8'),key=c.match(/supabaseAnonKey:\s*['"]([^'"]+)['"]/)?.[1];
+          if(!key||(!key.startsWith('sb_publishable_')&&JSON.parse(Buffer.from(key.split('.')[1],'base64url')).role!=='anon'))throw Error('Invalid public key');
+          const headers={apikey:key,...(key.startsWith('sb_publishable_')?{}:{Authorization:'Bearer '+key})};
+          const base='https://ajerazedcephwtpwxnvl.supabase.co/rest/v1';
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          const routes=[
+            {p:'/rpc/yespark_search_catalog',body:{p_kind:'empresa',p_query:'',p_category:null,p_sort:'recent',p_limit:9,p_offset:0}},
+            {p:'/yespark_catalog_public?select=*&kind=eq.servico&order=rating_avg.desc,created_at.desc&limit=9'},
+            {p:'/banners?select=*&order=sort_order.asc&limit=10'},
+            {p:'/listing_categories?select=kind,name&order=name.asc'},
+            {p:'/rpc/yespark_search_catalog',body:{p_kind:'servico',p_query:'limpeza',p_category:null,p_sort:'rating',p_limit:17,p_offset:0}},
+            {p:'/ads?select=*&limit=10'}
+          ];
+          const pct=(a,p)=>a[Math.max(0,Math.ceil(a.length*p)-1)]??0;
+          let total=0;
+          // Open-loop pacing: 10/30/50 modeled visitors, each averaging 1 request per 10s.
+          // 60 seconds per stage; hard ceiling 540 requests and 8 in-flight.
+          for(const users of [10,30,50]){
+            const start=performance.now(),ms=[],statuses={},pending=new Set();
+            let stop=false,errors=0,issued=0,maxFlight=0;
+            const interval=10000/users;
+            async function request(i){
+              const route=routes[i%routes.length],t=performance.now();let status=0,ok=false;
+              try{const res=await fetch(base+route.p,{method:route.body?'POST':'GET',headers:route.body?{...headers,'Content-Type':'application/json'}:headers,body:route.body?JSON.stringify(route.body):undefined,signal:AbortSignal.timeout(5000)});status=res.status;await res.arrayBuffer();ok=res.ok}catch{}
+              ms.push(performance.now()-t);statuses[status]=(statuses[status]||0)+1;if(!ok)errors++;
+              if(status===429||status>=500||status===0||(ms.length>=20&&errors/ms.length>0.01))stop=true;
+              if(ms.length>=20&&pct([...ms].sort((a,b)=>a-b),.95)>1500)stop=true;
+            }
+            for(let i=0;i<users*6&&!stop;i++){
+              const due=start+i*interval;
+              if(performance.now()<due)await sleep(due-performance.now());
+              if(stop)break;
+              if(pending.size>=8){stop=true;break}
+              const p=request(i).finally(()=>pending.delete(p));pending.add(p);issued++;total++;maxFlight=Math.max(maxFlight,pending.size);
+              if(total>=540)break;
+            }
+            await Promise.all(pending);ms.sort((a,b)=>a-b);
+            console.log('LOAD_RESULT '+JSON.stringify({modeled_users:users,duration_s:+((performance.now()-start)/1000).toFixed(2),issued,errors,statuses,max_in_flight:maxFlight,p50_ms:Math.round(pct(ms,.5)),p95_ms:Math.round(pct(ms,.95)),p99_ms:Math.round(pct(ms,.99)),max_ms:Math.round(ms.at(-1)||0),stopped:stop}));
+            if(stop||errors){console.log('STOP_GUARD');break}
+          }
+          console.log('TOTAL_REQUESTS '+total);
+          NODE
