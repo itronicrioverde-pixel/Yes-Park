@@ -1,0 +1,16 @@
+name: Yes Park - auth QA
+on:
+  pull_request:
+    branches: [main]
+    paths: ['js/recovery.js','js/app.js','recuperar.html','tests/auth.test.mjs','.github/workflows/auth-qa.yml']
+permissions:
+  contents: read
+jobs:
+  auth:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: node tests/auth.test.mjs
