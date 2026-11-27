@@ -1,0 +1,51 @@
+name: Yes Park - autenticacao real isolada
+on:
+  pull_request:
+    branches: [main]
+    paths: ['.github/workflows/auth-real.yml','tests/auth-real.mjs']
+permissions:
+  contents: read
+jobs:
+  auth-real:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.79.0
+      - name: Start isolated Supabase and local email
+        run: |
+          supabase --version
+          supabase init
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('supabase/config.toml')
+          s=p.read_text()
+          s=re.sub(r'(?m)^site_url\s*=.*$', 'site_url = "http://127.0.0.1:3000"', s)
+          s=re.sub(r'(?m)^additional_redirect_urls\s*=.*$', 'additional_redirect_urls = ["http://127.0.0.1:3000/recuperar.html"]', s)
+          p.write_text(s)
+          PY
+          mkdir -p supabase/migrations
+          cat > supabase/migrations/20261127180000_qa_fixture.sql <<'SQL'
+          create table public.admins(user_id uuid primary key references auth.users(id) on delete cascade, active boolean not null default true);
+          alter table public.admins enable row level security;
+          grant select on public.admins to authenticated;
+          grant select,insert,delete on public.admins to service_role;
+          create policy admin_self on public.admins for select to authenticated using (auth.uid()=user_id and active);
+          SQL
+          supabase start -x realtime,storage-api,imgproxy,studio,edge-runtime,logflare,vector,supavisor,postgres-meta
+      - name: Test actual auth and recovery using Mailpit
+        run: |
+          npm install --no-save --no-package-lock @supabase/supabase-js@2.57.0
+          supabase status -o env > /tmp/qa-local.env
+          set -a
+          source /tmp/qa-local.env
+          set +a
+          node tests/auth-real.mjs
+      - if: always()
+        run: supabase stop --no-backup
