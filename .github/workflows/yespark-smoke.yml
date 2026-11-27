@@ -1,0 +1,40 @@
+name: Yes Park - smoke HTTP limitado
+on:
+  pull_request:
+    branches: [main]
+    paths: ['.github/workflows/yespark-smoke.yml']
+permissions:
+  contents: read
+jobs:
+  smoke:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verificar site e API com leitura limitada
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          import {performance} from 'node:perf_hooks';
+          const site='https://itronicrioverde-pixel.github.io/Yes-Park/';
+          const c=readFileSync('js/config.js','utf8');
+          const key=c.match(/supabaseAnonKey:\s*['"]([^'"]+)['"]/)?.[1];
+          const api='https://ajerazedcephwtpwxnvl.supabase.co/rest/v1';
+          if (!key || (!key.startsWith('sb_publishable_') && JSON.parse(Buffer.from(key.split('.')[1],'base64url')).role!=='anon')) throw Error('Chave publica invalida');
+          const headers={apikey:key,...(key.startsWith('sb_publishable_')?{}:{Authorization:'Bearer '+key})};
+          const files=['','js/app.js','css/app.css','recuperar.html','manifest.webmanifest'];
+          let bad=0;
+          for (const f of files) {
+            try {const r=await fetch(site+f,{signal:AbortSignal.timeout(10000)});const t=await r.text();const ok=r.ok&&(f!==''||t.includes('20261127-prelaunch1'));console.log(JSON.stringify({file:f||'home',status:r.status,ok}));if(!ok)bad++}catch{bad++;console.log(JSON.stringify({file:f||'home',ok:false}))}
+          }
+          const paths=['/yespark_catalog_public?select=id&kind=eq.empresa&limit=9','/yespark_catalog_public?select=id&kind=eq.servico&limit=9','/banners?select=id&limit=10','/ads?select=id&limit=10'];
+          for(const n of [1,5,10]) {
+            const results=await Promise.all(Array.from({length:n},async(_,i)=>{const t=performance.now();try{const r=await fetch(api+paths[i%4],{headers,signal:AbortSignal.timeout(10000)});await r.arrayBuffer();return {ms:performance.now()-t,ok:r.ok,status:r.status}}catch{return {ms:performance.now()-t,ok:false,status:0}}}));
+            const times=results.map(x=>x.ms).sort((a,b)=>a-b);const errors=results.filter(x=>!x.ok).length;console.log(JSON.stringify({concurrency:n,requests:results.length,errors,p95_ms:Math.round(times[Math.ceil(n*.95)-1])}));if(errors){bad++;break}
+          }
+          if(bad)process.exitCode=1;
+          NODE
