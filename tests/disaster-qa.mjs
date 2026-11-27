@@ -1,3 +1,7 @@
+import {mkdtemp,writeFile,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {restoreFreshProject} from '../recovery/restore-new-project.mjs';
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID,webcrypto} from 'node:crypto';
 import {createRequire} from 'node:module';
@@ -26,12 +30,14 @@ const tables={listing_categories:[{kind:'empresa',name:'QA',created_at:created}]
 const media=[{name:path,size:img.length,type:'image/png'}],archive=await buildArchive({tables,media},source,async()=>img);
 const loaded=await readArchive(new Blob([archive]),source);assert.equal(loaded.files.size,1);
 for(const table of ['listings','ads','banners'])for(const row of loaded.tables[table])for(const field of ['image_url','profile_image_url'])if(typeof row[field]==='string'&&row[field].startsWith(source+'/storage/v1/object/public/yespark-media/'))row[field]=row[field].replace(source,url);
-const plan=ok(await admin.rpc('yespark_restore_backup',{p_tables:loaded.tables,p_apply:false}),'restore dry-run');assert.equal(plan.listings.inserted,1);
-assert.equal(ok(await admin.rpc('yespark_export_backup'),'after dryrun').tables.listings.length,0);
-for(const m of loaded.manifest.media)ok(await admin.storage.from('yespark-media').upload(m.name,new Blob([loaded.files.get(m.name)],{type:m.type}),{contentType:m.type,upsert:false}),'upload restored media');
-ok(await admin.rpc('yespark_restore_backup',{p_tables:loaded.tables,p_apply:true}),'restore records');
-ok(await admin.from('site_settings').update({enabled:false}).eq('key','show_home_promos'),'restore settings');
-ok(await admin.from('legal_contact').update({controller_name:'QA Teste',contact_email:'qa@example.test',updated_at:created}).eq('id',1),'restore legal config');
+const dir=await mkdtemp(join(tmpdir(),'yespark-restore-qa-')),file=join(dir,'qa.zip');
+await writeFile(file,archive);
+try{
+ const plan=await restoreFreshProject({file,targetUrl:url,key,email,password:pass,apply:false,source});assert.equal(plan.listings.inserted,1);
+ assert.equal(ok(await admin.rpc('yespark_export_backup'),'after dryrun').tables.listings.length,0);
+ await restoreFreshProject({file,targetUrl:url,key,email,password:pass,apply:true,source});
+ await assert.rejects(restoreFreshProject({file,targetUrl:url,key,email,password:pass,apply:true,source}),/não está vazio/);
+}finally{await rm(dir,{recursive:true,force:true})}
 const restored=ok(await admin.rpc('yespark_export_backup'),'restored snapshot');
 for(const t of Object.keys(tables)){assert.equal(restored.tables[t].length,1,t);if(t==='listings')assert(restored.tables[t][0].image_url.startsWith(url));}
 const image=ok(await admin.storage.from('yespark-media').download(path),'download restored image');
