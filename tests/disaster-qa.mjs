@@ -60,4 +60,27 @@ for(const n of [10,50,100,200]){
  console.log('LOCAL_LOAD '+JSON.stringify({concurrency:n,requests:results.length,errors,p50:p(.5),p95:p(.95),p99:p(.99),seconds:+((performance.now()-start)/1000).toFixed(2)}));
  if(errors||p(.95)>3000){console.log('LOCAL_LOAD_STOP');break}
 }
+// Soak test, 200 active synthetic visitors for 180s, one read every 8–12s.
+// All traffic is directed to the isolated local Supabase, not production.
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const N=200,DURATION=180000,started=performance.now(),deadline=started+DURATION;
+const samples=[];let errors=0,stop=false,maxInFlight=0,inFlight=0;
+const workers=Array.from({length:N},(_,i)=>(async()=>{
+ await sleep(i*40);
+ let j=0;
+ while(performance.now()<deadline&&!stop){
+  const begin=performance.now();inFlight++;maxInFlight=Math.max(maxInFlight,inFlight);
+  let correct=false,status=0;
+  try{const r=await fetch(url+'/rest/v1/rpc/yespark_search_catalog',{method:'POST',headers,body:JSON.stringify({p_kind:i%2?'empresa':'servico',p_query:j%3?'':'QA',p_sort:j%3===1?'rating':'recent',p_limit:16,p_offset:0}),signal:AbortSignal.timeout(12000)});status=r.status;const d=await r.json();correct=r.ok&&Array.isArray(d)&&d.length===16}catch{}
+  inFlight--;samples.push(performance.now()-begin);if(!correct){errors++;stop=true;}
+  if(samples.length>=100&&samples.length%100===0){const last=samples.slice(-100).sort((a,b)=>a-b);if(last[94]>3000)stop=true;}
+  j++;const delay=8000+((i*137+j*613)%4001);const remain=deadline-performance.now();
+  if(remain>0&&!stop)await sleep(Math.min(remain,delay));
+ }
+})());
+await Promise.all(workers);
+const ordered=samples.slice().sort((a,b)=>a-b),percent=p=>Math.round(ordered[Math.ceil(ordered.length*p)-1]||0);
+console.log('LOCAL_SOAK '+JSON.stringify({active_visitors:N,seconds:+((performance.now()-started)/1000).toFixed(2),requests:samples.length,errors,p50:percent(.5),p95:percent(.95),p99:percent(.99),max_in_flight:maxInFlight,stopped:stop}));
+assert(!stop&&errors===0&&samples.length>=2000,'Sustained test failed or stopped');
+
 await admin.auth.signOut();console.log('PASS test environment isolated');
