@@ -55,13 +55,13 @@ function catalogSearch(kind){return String($(kind==='servico'?'#service-search':
 async function loadCatalog(kind,page=0){
  if(!LIVE||!client)return;
  const st=catalogState[kind],token=++st.token;
- st.loading=true;st.loaded=true;st.page=page;
+ st.loading=true;st.loaded=true;st.page=page;st.error=null;
  renderListingGrid(kind);
  const params={p_kind:kind,p_query:catalogSearch(kind),p_category:catalogFilter(kind)==='Todos'?null:catalogFilter(kind),p_sort:catalogSort(kind),p_limit:PAGE_SIZE+1,p_offset:page*PAGE_SIZE};
  try{
   const rows=await cachedPublic('catalog:'+JSON.stringify(params),()=>client.rpc('yespark_search_catalog',params),60000);
   if(token!==st.token)return;
-  st.hasMore=rows.length>PAGE_SIZE;st.items=rows.slice(0,PAGE_SIZE);st.loading=false;
+  st.hasMore=rows.length>PAGE_SIZE;st.items=rows.slice(0,PAGE_SIZE);st.loading=false;st.error=null;
   mergeListings(st.items);renderListingGrid(kind);
  }catch(e){if(token!==st.token)return;st.loading=false;st.items=[];st.hasMore=false;st.error=e.message;renderListingGrid(kind);console.error(e)}
 }
@@ -248,7 +248,7 @@ function renderListingGrid(kind){
  let svc=kind==='servico',key=svc?'#service-search':'#business-search',target=svc?'#services-list':'#businesses-list',pages=$(svc?'#service-pages':'#business-pages');
  if(LIVE){
   const st=catalogState[kind];
-  $(target).innerHTML=st.loading?'<p class="empty">Carregando cadastros...</p>':st.error?'<p class="empty">Falha ao consultar o catálogo. Tente pesquisar novamente.</p>':!st.loaded?'<p class="empty">Abra esta seção para consultar os cadastros.</p>':st.items.length?st.items.map(x=>listingCard(x)).join(''):'<p class="empty">Nenhum resultado encontrado.</p>';
+  $(target).innerHTML=st.loading?'<p class="empty">Carregando cadastros...</p>':st.error?'<div class="empty"><p>Falha ao consultar o catálogo.</p><button type="button" class="btn ghost" data-catalog-page="'+kind+'" data-page="'+st.page+'">Tentar novamente</button></div>':!st.loaded?'<p class="empty">Abra esta seção para consultar os cadastros.</p>':st.items.length?st.items.map(x=>listingCard(x)).join(''):'<p class="empty">Nenhum resultado encontrado.</p>';
   if(svc)$('#services-count').textContent=st.loaded&&!st.loading?'Página '+(st.page+1)+' · '+st.items.length+' profissionais nesta página':'';
   pages.innerHTML=st.loaded&&!st.loading&&!st.error&&(st.page>0||st.hasMore)?'<button type="button" class="btn ghost" data-catalog-page="'+kind+'" data-page="'+(st.page-1)+'" '+(st.page===0?'disabled':'')+'>← Anterior</button><span class="hint">Página '+(st.page+1)+'</span><button type="button" class="btn ghost" data-catalog-page="'+kind+'" data-page="'+(st.page+1)+'" '+(!st.hasMore?'disabled':'')+'>Próxima →</button>':'';
   return;
@@ -322,7 +322,7 @@ async function refreshCloud(){
  if(!client)return;
  try{
   const [companies,services,ads,banners]=await Promise.all([
-   cachedPublic('home:empresa',()=>client.from('yespark_catalog_public').select('*').eq('kind','empresa').order('created_at',{ascending:false}).limit(HOME_SIZE+1),60000),
+   cachedPublic('home:empresa',()=>client.rpc('yespark_search_catalog',{p_kind:'empresa',p_query:'',p_category:null,p_sort:'recent',p_limit:HOME_SIZE+1,p_offset:0}),60000),
    cachedPublic('home:servico',()=>client.from('yespark_catalog_public').select('*').eq('kind','servico').order('rating_avg',{ascending:false}).order('created_at',{ascending:false}).limit(HOME_SIZE+1),60000),
    cachedPublic('ads:first',()=>client.from('ads').select('*').order('created_at',{ascending:false}).range(0,50),60000),
    cachedPublic('banners',()=>client.from('banners').select('*').order('sort_order',{ascending:true}).limit(80),120000)
